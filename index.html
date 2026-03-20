@@ -144,14 +144,25 @@
             opacity: 0;
         }
 
-		.text-5xl {
-			font-size: 2.2rem !important;
-			line-height: 1 !important;
-		}
-		.text-7xl {
-			font-size: 3.9rem !important;
-			line-height: 1 !important;
-		}
+        /* =====================================================
+           RESPONSIVE FIX for "Kishan & Jyoti" name sizes
+           Only override on mobile (< 768px).
+           On md+ screens, Tailwind's md:text-8xl / md:text-9xl
+           take over naturally without any !important blocking.
+           ===================================================== */
+        @media (max-width: 767px) {
+            /* Entry / curtain screen: text-5xl on mobile */
+            .text-5xl {
+                font-size: 2.2rem !important;
+                line-height: 1 !important;
+            }
+
+            /* Hero section script name: text-7xl on mobile */
+            .text-7xl {
+                font-size: 3.9rem !important;
+                line-height: 1 !important;
+            }
+        }
     </style>
 </head>
 
@@ -314,7 +325,7 @@
                             </div>
                             <div class="absolute inset-0 border-4 border-royal-900 rounded-full transform rotate-12">
                             </div>
-                            <img src="Media.jpeg"
+                            <img src="Media.JPEG"
                                  class="w-full h-full object-cover rounded-full shadow-xl grayscale hover:grayscale-0 transition-all duration-500"
                                  alt="Bride">
                         </div>
