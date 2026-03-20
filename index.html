@@ -146,21 +146,28 @@
 
         /* =====================================================
            RESPONSIVE FIX for "Kishan & Jyoti" name sizes
-           Only override on mobile (< 768px).
-           On md+ screens, Tailwind's md:text-8xl / md:text-9xl
-           take over naturally without any !important blocking.
+           Uses fluid clamp() so the name always fits on one
+           line from the smallest phone to large desktop.
+           - Entry screen  (Playfair, text-5xl→md:text-8xl)
+           - Hero section  (Great Vibes script, text-7xl→md:text-9xl)
+           On md+ Tailwind's responsive classes take over.
            ===================================================== */
-        @media (max-width: 767px) {
-            /* Entry / curtain screen: text-5xl on mobile */
-            .text-5xl {
-                font-size: 2.2rem !important;
-                line-height: 1 !important;
-            }
 
-            /* Hero section script name: text-7xl on mobile */
+        /* Entry / curtain screen — Playfair Display serif name */
+        @media (max-width: 767px) {
+            .text-5xl {
+                font-size: clamp(1.4rem, 7.5vw, 2.2rem) !important;
+                line-height: 1.1 !important;
+                white-space: nowrap;
+            }
+        }
+
+        /* Hero section — Great Vibes script name */
+        @media (max-width: 767px) {
             .text-7xl {
-                font-size: 3.9rem !important;
-                line-height: 1 !important;
+                font-size: clamp(2rem, 10vw, 3.9rem) !important;
+                line-height: 1.1 !important;
+                white-space: nowrap;
             }
         }
     </style>
